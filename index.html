@@ -7,75 +7,98 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#1a1d23;
-  --bg2:#22262e;
-  --bg3:#2a2f38;
-  --fg:#e8eaed;
-  --fg-mute:#9aa3ad;
-  --orange:#ff8c1a;
-  --green:#3ddc84;
-  --red:#ff5247;
-  --line:#3a414d;
+  --bg:#ffffff;
+  --bg2:#f5f6f8;
+  --bg3:#ebedf1;
+  --fg:#1a1d23;
+  --fg-mute:#6c7480;
+  --orange:#e26a00;
+  --orange-bg:#fff3e6;
+  --green:#1f8a4f;
+  --green-bg:#e8f5ed;
+  --red:#c4332a;
+  --line:#d6dae0;
 }
-html,body{background:var(--bg);color:var(--fg);font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",-apple-system,sans-serif;font-weight:700;line-height:1.55}
-.wrap{max-width:960px;margin:0 auto;padding:48px 24px 96px}
+html,body{background:var(--bg);color:var(--fg);font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",-apple-system,sans-serif;font-weight:600;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:48px 24px 96px}
 
 /* === HERO === */
-.hero{padding:24px 28px 28px;border-left:6px solid var(--orange);background:var(--bg2);margin-bottom:48px}
-.hero .tag{display:inline-block;font-size:11px;letter-spacing:.15em;color:var(--orange);margin-bottom:10px}
-.hero h1{font-size:32px;line-height:1.3;letter-spacing:.02em;margin-bottom:12px}
-.hero .sub{font-size:15px;color:var(--fg-mute);font-weight:500}
-.hero .meta{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:var(--fg-mute);font-weight:500}
+.hero{padding:28px 32px 32px;border-left:6px solid var(--orange);background:var(--bg2);margin-bottom:48px}
+.hero .tag{display:inline-block;font-size:11px;letter-spacing:.18em;color:var(--orange);margin-bottom:10px;font-weight:800}
+.hero h1{font-size:30px;line-height:1.35;letter-spacing:.02em;margin-bottom:12px;color:var(--fg);font-weight:900}
+.hero .sub{font-size:15px;color:var(--fg-mute);font-weight:600}
+.hero .meta{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:var(--fg-mute)}
 
 /* === SECTIONS === */
 section{margin-bottom:56px}
-h2{font-size:22px;letter-spacing:.04em;padding-bottom:10px;margin-bottom:20px;border-bottom:2px solid var(--green);display:inline-block}
-h3{font-size:17px;color:var(--orange);margin:20px 0 10px}
-p{margin-bottom:12px;font-weight:500}
+h2{font-size:22px;letter-spacing:.04em;padding-bottom:10px;margin-bottom:20px;border-bottom:3px solid var(--green);display:inline-block;font-weight:900}
+h3{font-size:17px;color:var(--orange);margin:20px 0 10px;font-weight:800}
+p{margin-bottom:12px}
 
-.callout{background:var(--bg2);padding:16px 20px;border-left:4px solid var(--green);margin-bottom:20px;font-weight:500}
-.callout strong{color:var(--green)}
+.callout{background:var(--green-bg);padding:16px 20px;border-left:4px solid var(--green);margin-bottom:20px}
+.callout strong{color:var(--green);font-weight:800}
+
+/* === MODULE GRID === */
+.module-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
+.module-card{background:var(--bg2);border:1px solid var(--line);padding:18px;text-align:center}
+.module-card img{max-width:100%;height:140px;object-fit:contain;background:#fff;border:1px solid var(--line);padding:8px}
+.module-card .role{font-size:10px;letter-spacing:.1em;color:var(--fg-mute);margin-top:12px;font-weight:700}
+.module-card .model{font-size:16px;color:var(--orange);font-weight:900;margin-top:2px;letter-spacing:.02em}
+.module-card .desc{font-size:12px;color:var(--fg-mute);margin-top:6px;font-weight:500}
+@media(max-width:680px){.module-grid{grid-template-columns:1fr}}
 
 /* === STEP CARDS === */
 .steps{display:flex;flex-direction:column;gap:0}
 .step{background:var(--bg2);border:1px solid var(--line);border-left:5px solid var(--orange);padding:24px 28px;margin-bottom:0}
 .step:not(:last-child){border-bottom:none}
-.step-num{display:inline-block;background:var(--orange);color:var(--bg);font-size:14px;padding:3px 10px;margin-right:10px;letter-spacing:.05em}
-.step-title{display:inline;font-size:18px;letter-spacing:.02em}
-.step-best{background:var(--green);color:var(--bg);font-size:11px;padding:2px 8px;margin-left:8px;letter-spacing:.05em;vertical-align:1px}
-.step-body{margin-top:14px;font-weight:500;color:var(--fg)}
+.step-num{display:inline-block;background:var(--orange);color:#fff;font-size:14px;padding:3px 10px;margin-right:10px;letter-spacing:.05em;font-weight:800}
+.step-title{display:inline;font-size:18px;letter-spacing:.02em;font-weight:900}
+.step-best{background:var(--green);color:#fff;font-size:11px;padding:2px 8px;margin-left:8px;letter-spacing:.05em;vertical-align:1px;font-weight:800}
+.step-body{margin-top:14px;color:var(--fg)}
 .step-body ul{list-style:none;padding-left:0}
 .step-body li{padding:6px 0 6px 22px;position:relative}
 .step-body li::before{content:"▸";color:var(--orange);position:absolute;left:4px;top:6px;font-weight:900}
 
-/* === SVG SCHEMATIC === */
-.diagram{background:var(--bg3);border:1px solid var(--line);padding:24px;margin:18px 0;text-align:center}
-.diagram svg{max-width:100%;height:auto}
-.diagram .cap{font-size:12px;color:var(--fg-mute);margin-top:12px;font-weight:500}
+/* === ANNOTATED IMAGE === */
+.photo-zoom{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:18px 0;background:var(--bg);border:1px solid var(--line);padding:20px}
+.photo-zoom .pic{background:#fff;border:1px solid var(--line);padding:12px;text-align:center;position:relative}
+.photo-zoom .pic img{max-width:100%;height:260px;object-fit:contain}
+.photo-zoom .pic .arrow-tag{position:absolute;background:var(--orange);color:#fff;font-size:11px;font-weight:800;padding:4px 10px;letter-spacing:.05em;top:24px;right:24px;box-shadow:0 2px 8px rgba(226,106,0,.3)}
+.photo-zoom .pic .arrow-tag::before{content:"";position:absolute;left:-8px;top:50%;transform:translateY(-50%);border:6px solid transparent;border-right-color:var(--orange)}
+.photo-zoom .text h4{font-size:14px;color:var(--orange);font-weight:800;margin-bottom:8px;letter-spacing:.05em}
+.photo-zoom .text p{font-size:13px;line-height:1.7;font-weight:500;color:var(--fg)}
+.photo-zoom .text .hint{margin-top:12px;padding:10px 14px;background:var(--orange-bg);border-left:3px solid var(--orange);font-size:12px;font-weight:600}
+@media(max-width:680px){.photo-zoom{grid-template-columns:1fr}}
+
+.cap{font-size:11px;color:var(--fg-mute);margin-top:8px;font-weight:500;text-align:center}
 
 /* === COMPARISON TABLE === */
-table{width:100%;border-collapse:collapse;background:var(--bg2);margin-bottom:20px}
-th,td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--line);font-weight:500}
-th{background:var(--bg3);color:var(--orange);letter-spacing:.05em;font-size:13px;font-weight:700}
-td:first-child{color:var(--green);font-weight:700}
+table{width:100%;border-collapse:collapse;background:var(--bg);margin-bottom:20px;border:1px solid var(--line)}
+th,td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:var(--bg3);color:var(--fg);letter-spacing:.05em;font-size:13px;font-weight:800}
+td:first-child{color:var(--green);font-weight:800}
 
 /* === LINKS === */
 a{color:var(--orange);text-decoration:none;border-bottom:1px solid var(--orange)}
 a:hover{color:var(--green);border-color:var(--green)}
 
 /* === LINK CARDS === */
-.linkcard{display:flex;flex-direction:column;gap:8px;background:var(--bg2);padding:14px 18px;border-left:3px solid var(--orange);margin-bottom:10px}
-.linkcard .lt{font-size:14px;font-weight:700;color:var(--fg)}
+.linkcard{background:var(--bg2);padding:14px 18px;border-left:3px solid var(--orange);margin-bottom:10px}
+.linkcard .lt{font-size:14px;font-weight:800;color:var(--fg);margin-bottom:4px}
 .linkcard a{font-size:12px;font-weight:500;border:none;word-break:break-all}
 
 /* === ACTION === */
-.action{background:linear-gradient(135deg,var(--bg2),var(--bg3));border:2px solid var(--green);padding:24px 28px;margin-top:48px}
+.action{background:var(--green-bg);border:2px solid var(--green);padding:24px 28px;margin-top:48px}
 .action h2{border-color:var(--orange);color:var(--orange);margin-bottom:14px}
-.action p{font-size:15px;font-weight:500}
-.action .quote{background:var(--bg);padding:14px 18px;margin-top:14px;border-left:4px solid var(--orange);font-size:14px;color:var(--fg);font-weight:500;font-family:"Hiragino Mincho ProN",serif}
+.action p{font-size:15px;font-weight:600}
+.action .quote{background:#fff;padding:14px 18px;margin-top:14px;border-left:4px solid var(--orange);font-size:14px;color:var(--fg);font-weight:500;line-height:1.8}
 
 /* === FOOTER === */
 footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);font-size:11px;color:var(--fg-mute);font-weight:500;text-align:right}
+
+/* === SVG SCHEMATIC === */
+.diagram{background:var(--bg);border:1px solid var(--line);padding:24px;margin:18px 0;text-align:center}
+.diagram svg{max-width:100%;height:auto}
 </style>
 </head>
 <body>
@@ -89,10 +112,36 @@ footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);font-si
 </div>
 
 <section>
+  <h2>対象機器の構成（既知情報）</h2>
+  <p style="font-weight:600">アイシン高丘東北・電気炉系制御盤に設置されている富士電機 MICREX-SX SPHシリーズ。CPU・電源は判明、通信モジュールのみ機種不明。</p>
+
+  <div class="module-grid">
+    <div class="module-card">
+      <img src="img/sph300-cpu.jpg" alt="SPH300 CPU NP1PS-32R">
+      <div class="role">CPUモジュール</div>
+      <div class="model">NP1PS-32R</div>
+      <div class="desc">SPH300シリーズ・標準形CPU<br>32Kステップ・確定済</div>
+    </div>
+    <div class="module-card">
+      <img src="img/np1s-22.jpg" alt="AC電源モジュール NP1S-22">
+      <div class="role">電源モジュール</div>
+      <div class="model">NP1S-22</div>
+      <div class="desc">AC100-240V汎用電源<br>確定済</div>
+    </div>
+    <div class="module-card" style="border-color:var(--orange);background:var(--orange-bg)">
+      <img src="img/np1l-et1.jpg" alt="通信モジュール NP1L-ET1（参考）">
+      <div class="role" style="color:var(--orange)">通信モジュール</div>
+      <div class="model">NP1L-ET<span style="color:var(--red)">?</span></div>
+      <div class="desc"><strong style="color:var(--red)">ET1 / ET2 のいずれか未確定</strong></div>
+    </div>
+  </div>
+  <div class="cap">画像出典: 富士電機株式会社公式サイト</div>
+</section>
+
+<section>
   <h2>なぜ確認が必要か</h2>
   <div class="callout">
-    富士電機 SPHシリーズ（NP1PS-32R）の通信モジュールが <strong>ET1 か ET2 か</strong> によって、データ取込のアーキテクチャ・コスト・必要機材が大きく変わる。<br>
-    両機種とも FL-net 系で Modbus/TCP 非対応のため、汎用PCから直接読む手段が限られる。実装前に必ず確定させる。
+    通信モジュールが <strong>ET1 か ET2 か</strong> によって、データ取込のアーキテクチャ・コスト・必要機材が大きく変わる。両機種とも FL-net 系で Modbus/TCP 非対応のため、汎用PCから直接読む手段が限られる。実装前に必ず確定させる。
   </div>
 
   <table>
@@ -112,70 +161,78 @@ footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);font-si
   <div class="steps">
 
     <div class="step">
-      <div><span class="step-num">01</span><span class="step-title">制御盤の銘板を直接確認する</span><span class="step-best">最確実 / 最短</span></div>
+      <div><span class="step-num">01</span><span class="step-title">通信モジュール正面の銘板を直接確認する</span><span class="step-best">最確実 / 最短</span></div>
       <div class="step-body">
-        <p>PLCラックを開け、通信モジュール本体正面の銘板を直接読む。富士電機モジュールはパネル上部または中央に型番が印字されている。</p>
+        <p>制御盤を開け、通信モジュール正面パネルの銘板（型番印字）を読む。富士電機のNシリーズはモジュール上面〜中央部に型番が印字されている。</p>
+
+        <div class="photo-zoom">
+          <div class="pic">
+            <img src="img/np1l-et1.jpg" alt="NP1L-ET1 銘板の位置">
+            <div class="arrow-tag">ココを見る</div>
+            <div class="cap">参考写真: NP1L-ET1 実機（富士電機公式画像）</div>
+          </div>
+          <div class="text">
+            <h4>確認すべきポイント</h4>
+            <p>モジュール正面パネルに印字されている <strong>「NP1L-ET1」</strong> または <strong>「NP1L-ET2」</strong> の型番文字列。</p>
+            <p>LANポート上部または銘板シールに記載されている。シリアル番号・製造番号も同じ位置に並んで印字されている。</p>
+            <div class="hint">📸 髙橋様にお願いするのは「<strong>通信モジュール正面の銘板写真を1枚</strong>」だけ。これだけで確定する。</div>
+          </div>
+        </div>
 
         <div class="diagram">
-<svg viewBox="0 0 800 280" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 800 240" xmlns="http://www.w3.org/2000/svg">
   <!-- ラック背景 -->
-  <rect x="20" y="40" width="760" height="200" fill="#3a414d" stroke="#9aa3ad" stroke-width="2"/>
-  <text x="30" y="32" fill="#9aa3ad" font-size="12" font-weight="700">PLC ラック（制御盤内）</text>
+  <rect x="20" y="40" width="760" height="180" fill="#ebedf1" stroke="#6c7480" stroke-width="1.5"/>
+  <text x="30" y="32" fill="#6c7480" font-size="12" font-weight="700">PLC ラック（制御盤内）</text>
 
-  <!-- 電源モジュール -->
-  <rect x="40" y="60" width="100" height="160" fill="#22262e" stroke="#9aa3ad"/>
-  <text x="90" y="80" fill="#9aa3ad" text-anchor="middle" font-size="10">電源</text>
-  <rect x="55" y="95" width="70" height="20" fill="#1a1d23"/>
-  <text x="90" y="110" fill="#ff8c1a" text-anchor="middle" font-size="11" font-weight="700">NP1S-22</text>
-  <circle cx="65" cy="135" r="4" fill="#3ddc84"/>
-  <circle cx="80" cy="135" r="4" fill="#666"/>
+  <!-- 電源 -->
+  <rect x="40" y="60" width="100" height="140" fill="#fff" stroke="#6c7480"/>
+  <text x="90" y="78" fill="#6c7480" text-anchor="middle" font-size="10" font-weight="700">電源</text>
+  <rect x="55" y="90" width="70" height="20" fill="#f5f6f8"/>
+  <text x="90" y="105" fill="#1f8a4f" text-anchor="middle" font-size="11" font-weight="900">NP1S-22</text>
+  <circle cx="65" cy="125" r="3.5" fill="#1f8a4f"/>
+  <circle cx="80" cy="125" r="3.5" fill="#d6dae0"/>
 
   <!-- CPU -->
-  <rect x="150" y="60" width="100" height="160" fill="#22262e" stroke="#9aa3ad"/>
-  <text x="200" y="80" fill="#9aa3ad" text-anchor="middle" font-size="10">CPU</text>
-  <rect x="165" y="95" width="70" height="20" fill="#1a1d23"/>
-  <text x="200" y="110" fill="#ff8c1a" text-anchor="middle" font-size="11" font-weight="700">NP1PS-32R</text>
-  <circle cx="175" cy="135" r="4" fill="#3ddc84"/>
-  <circle cx="190" cy="135" r="4" fill="#3ddc84"/>
-  <circle cx="205" cy="135" r="4" fill="#666"/>
+  <rect x="150" y="60" width="100" height="140" fill="#fff" stroke="#6c7480"/>
+  <text x="200" y="78" fill="#6c7480" text-anchor="middle" font-size="10" font-weight="700">CPU</text>
+  <rect x="160" y="90" width="80" height="20" fill="#f5f6f8"/>
+  <text x="200" y="105" fill="#1f8a4f" text-anchor="middle" font-size="11" font-weight="900">NP1PS-32R</text>
+  <circle cx="175" cy="125" r="3.5" fill="#1f8a4f"/>
+  <circle cx="190" cy="125" r="3.5" fill="#1f8a4f"/>
+  <circle cx="205" cy="125" r="3.5" fill="#d6dae0"/>
 
-  <!-- 通信モジュール（強調） -->
-  <rect x="260" y="60" width="120" height="160" fill="#22262e" stroke="#ff8c1a" stroke-width="3"/>
-  <text x="320" y="80" fill="#ff8c1a" text-anchor="middle" font-size="11" font-weight="700">通信モジュール</text>
-  <rect x="280" y="95" width="80" height="22" fill="#1a1d23" stroke="#ff8c1a" stroke-width="1.5"/>
-  <text x="320" y="111" fill="#ff8c1a" text-anchor="middle" font-size="12" font-weight="900">NP1L-ET?</text>
-  <circle cx="290" cy="140" r="4" fill="#3ddc84"/>
-  <circle cx="305" cy="140" r="4" fill="#666"/>
-  <circle cx="320" cy="140" r="4" fill="#666"/>
-  <!-- LANポート -->
-  <rect x="290" y="170" width="40" height="25" fill="#444" stroke="#9aa3ad"/>
-  <text x="310" y="186" fill="#9aa3ad" text-anchor="middle" font-size="9">LAN</text>
+  <!-- 通信モジュール -->
+  <rect x="260" y="60" width="120" height="140" fill="#fff3e6" stroke="#e26a00" stroke-width="2.5"/>
+  <text x="320" y="78" fill="#e26a00" text-anchor="middle" font-size="11" font-weight="900">通信モジュール</text>
+  <rect x="278" y="90" width="84" height="22" fill="#fff" stroke="#e26a00" stroke-width="1.5"/>
+  <text x="320" y="106" fill="#e26a00" text-anchor="middle" font-size="13" font-weight="900">NP1L-ET?</text>
+  <circle cx="290" cy="130" r="3.5" fill="#1f8a4f"/>
+  <circle cx="305" cy="130" r="3.5" fill="#d6dae0"/>
+  <circle cx="320" cy="130" r="3.5" fill="#d6dae0"/>
+  <rect x="290" y="155" width="40" height="22" fill="#444" stroke="#6c7480"/>
+  <text x="310" y="170" fill="#fff" text-anchor="middle" font-size="9" font-weight="700">LAN</text>
 
   <!-- I/O -->
-  <rect x="390" y="60" width="80" height="160" fill="#22262e" stroke="#9aa3ad"/>
-  <text x="430" y="80" fill="#9aa3ad" text-anchor="middle" font-size="10">I/O</text>
-  <rect x="480" y="60" width="80" height="160" fill="#22262e" stroke="#9aa3ad"/>
-  <text x="520" y="80" fill="#9aa3ad" text-anchor="middle" font-size="10">I/O</text>
+  <rect x="390" y="60" width="80" height="140" fill="#fff" stroke="#6c7480"/>
+  <text x="430" y="78" fill="#6c7480" text-anchor="middle" font-size="10" font-weight="700">I/O</text>
+  <rect x="480" y="60" width="80" height="140" fill="#fff" stroke="#6c7480"/>
+  <text x="520" y="78" fill="#6c7480" text-anchor="middle" font-size="10" font-weight="700">I/O</text>
 
-  <!-- 矢印（銘板を指す） -->
-  <path d="M 600 125 L 400 105" stroke="#ff8c1a" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
+  <!-- 矢印 -->
+  <path d="M 600 110 L 400 100" stroke="#e26a00" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
   <defs>
     <marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
-      <polygon points="0 0, 10 5, 0 10" fill="#ff8c1a"/>
+      <polygon points="0 0, 10 5, 0 10" fill="#e26a00"/>
     </marker>
   </defs>
-  <text x="610" y="125" fill="#ff8c1a" font-size="14" font-weight="700">ココを見る</text>
-  <text x="610" y="148" fill="#e8eaed" font-size="12" font-weight="500">→ 正面パネルの</text>
-  <text x="610" y="166" fill="#e8eaed" font-size="12" font-weight="500">　 型番印字を確認</text>
-
-  <!-- LED ガイド -->
-  <path d="M 290 230 L 305 240" stroke="#3ddc84" stroke-width="1.5" fill="none"/>
-  <text x="310" y="248" fill="#3ddc84" font-size="10" font-weight="700">緑LED = 通信OK</text>
+  <text x="610" y="110" fill="#e26a00" font-size="14" font-weight="900">ココを見る</text>
+  <text x="610" y="130" fill="#1a1d23" font-size="12" font-weight="600">→ 正面パネルの</text>
+  <text x="610" y="148" fill="#1a1d23" font-size="12" font-weight="600">　 型番印字を確認</text>
 </svg>
           <div class="cap">図1: PLCラック構成イメージ — オレンジ枠の通信モジュール正面を確認</div>
         </div>
 
-        <p><strong style="color:var(--green)">推奨</strong>: 髙橋様に「<strong>通信モジュール正面の銘板写真を1枚送ってください</strong>」と依頼するだけ。型番は印字されているのでこれで確定する。</p>
       </div>
     </div>
 
@@ -197,7 +254,7 @@ footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);font-si
       <div class="step-body">
         <p>富士電機純正のプログラミングツールで実機にオンライン接続し、システム定義画面から自動取得する。</p>
         <ul>
-          <li><strong>SX-Programmer Standard</strong>（標準版・無償ダウンロード可）</li>
+          <li><strong>SX-Programmer Standard</strong>（標準版）</li>
           <li><strong>SX-Programmer Expert（D300win）</strong>（プロフェッショナル版）</li>
           <li>「システム定義（System Definition）」画面に組込みモジュール一覧と型番が表示される</li>
         </ul>
@@ -226,6 +283,14 @@ footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);font-si
     <a href="https://www.fujielectric.co.jp/products/drive_ctrl_equipment/plc/product_series/sph_product_information_cpu.html" target="_blank" rel="noopener">https://www.fujielectric.co.jp/products/drive_ctrl_equipment/plc/product_series/sph_product_information_cpu.html</a>
   </div>
   <div class="linkcard">
+    <div class="lt">富士電機 コンピュータレベル通信モジュール（NP1L-ET1/ET2）</div>
+    <a href="https://www.fujielectric.co.jp/products/drive_ctrl_equipment/plc/product_series/sph_product_information_computercom.html" target="_blank" rel="noopener">https://www.fujielectric.co.jp/products/drive_ctrl_equipment/plc/product_series/sph_product_information_computercom.html</a>
+  </div>
+  <div class="linkcard">
+    <div class="lt">富士電機 電源モジュール（NP1S-22）</div>
+    <a href="https://www.fujielectric.co.jp/products/drive_ctrl_equipment/plc/product_series/sph_product_information_powersupply.html" target="_blank" rel="noopener">https://www.fujielectric.co.jp/products/drive_ctrl_equipment/plc/product_series/sph_product_information_powersupply.html</a>
+  </div>
+  <div class="linkcard">
     <div class="lt">NP1S-42 PDF データシート（参考）</div>
     <a href="https://files.kempstoncontrols.com/files/d70c848071c5e9bd04470a6997ac71e5/NP1S-42.pdf" target="_blank" rel="noopener">https://files.kempstoncontrols.com/files/d70c848071c5e9bd04470a6997ac71e5/NP1S-42.pdf</a>
   </div>
@@ -240,7 +305,7 @@ footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);font-si
   </div>
 </div>
 
-<footer>株式会社Unsee ／ アイシン高丘東北 PLC案件 機器確認資料 ／ 内部共有用</footer>
+<footer>株式会社Unsee ／ アイシン高丘東北 PLC案件 機器確認資料 ／ 内部共有用 ／ 製品画像は富士電機株式会社公式サイトより引用</footer>
 </div>
 </body>
 </html>
