@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>富士電機 通信モジュール 確認方法 — NP1L-ET1 / NP1L-ET2</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#1a1d23;
+  --bg2:#22262e;
+  --bg3:#2a2f38;
+  --fg:#e8eaed;
+  --fg-mute:#9aa3ad;
+  --orange:#ff8c1a;
+  --green:#3ddc84;
+  --red:#ff5247;
+  --line:#3a414d;
+}
+html,body{background:var(--bg);color:var(--fg);font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",-apple-system,sans-serif;font-weight:700;line-height:1.55}
+.wrap{max-width:960px;margin:0 auto;padding:48px 24px 96px}
+
+/* === HERO === */
+.hero{padding:24px 28px 28px;border-left:6px solid var(--orange);background:var(--bg2);margin-bottom:48px}
+.hero .tag{display:inline-block;font-size:11px;letter-spacing:.15em;color:var(--orange);margin-bottom:10px}
+.hero h1{font-size:32px;line-height:1.3;letter-spacing:.02em;margin-bottom:12px}
+.hero .sub{font-size:15px;color:var(--fg-mute);font-weight:500}
+.hero .meta{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:var(--fg-mute);font-weight:500}
+
+/* === SECTIONS === */
+section{margin-bottom:56px}
+h2{font-size:22px;letter-spacing:.04em;padding-bottom:10px;margin-bottom:20px;border-bottom:2px solid var(--green);display:inline-block}
+h3{font-size:17px;color:var(--orange);margin:20px 0 10px}
+p{margin-bottom:12px;font-weight:500}
+
+.callout{background:var(--bg2);padding:16px 20px;border-left:4px solid var(--green);margin-bottom:20px;font-weight:500}
+.callout strong{color:var(--green)}
+
+/* === STEP CARDS === */
+.steps{display:flex;flex-direction:column;gap:0}
+.step{background:var(--bg2);border:1px solid var(--line);border-left:5px solid var(--orange);padding:24px 28px;margin-bottom:0}
+.step:not(:last-child){border-bottom:none}
+.step-num{display:inline-block;background:var(--orange);color:var(--bg);font-size:14px;padding:3px 10px;margin-right:10px;letter-spacing:.05em}
+.step-title{display:inline;font-size:18px;letter-spacing:.02em}
+.step-best{background:var(--green);color:var(--bg);font-size:11px;padding:2px 8px;margin-left:8px;letter-spacing:.05em;vertical-align:1px}
+.step-body{margin-top:14px;font-weight:500;color:var(--fg)}
+.step-body ul{list-style:none;padding-left:0}
+.step-body li{padding:6px 0 6px 22px;position:relative}
+.step-body li::before{content:"▸";color:var(--orange);position:absolute;left:4px;top:6px;font-weight:900}
+
+/* === SVG SCHEMATIC === */
+.diagram{background:var(--bg3);border:1px solid var(--line);padding:24px;margin:18px 0;text-align:center}
+.diagram svg{max-width:100%;height:auto}
+.diagram .cap{font-size:12px;color:var(--fg-mute);margin-top:12px;font-weight:500}
+
+/* === COMPARISON TABLE === */
+table{width:100%;border-collapse:collapse;background:var(--bg2);margin-bottom:20px}
+th,td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--line);font-weight:500}
+th{background:var(--bg3);color:var(--orange);letter-spacing:.05em;font-size:13px;font-weight:700}
+td:first-child{color:var(--green);font-weight:700}
+
+/* === LINKS === */
+a{color:var(--orange);text-decoration:none;border-bottom:1px solid var(--orange)}
+a:hover{color:var(--green);border-color:var(--green)}
+
+/* === LINK CARDS === */
+.linkcard{display:flex;flex-direction:column;gap:8px;background:var(--bg2);padding:14px 18px;border-left:3px solid var(--orange);margin-bottom:10px}
+.linkcard .lt{font-size:14px;font-weight:700;color:var(--fg)}
+.linkcard a{font-size:12px;font-weight:500;border:none;word-break:break-all}
+
+/* === ACTION === */
+.action{background:linear-gradient(135deg,var(--bg2),var(--bg3));border:2px solid var(--green);padding:24px 28px;margin-top:48px}
+.action h2{border-color:var(--orange);color:var(--orange);margin-bottom:14px}
+.action p{font-size:15px;font-weight:500}
+.action .quote{background:var(--bg);padding:14px 18px;margin-top:14px;border-left:4px solid var(--orange);font-size:14px;color:var(--fg);font-weight:500;font-family:"Hiragino Mincho ProN",serif}
+
+/* === FOOTER === */
+footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);font-size:11px;color:var(--fg-mute);font-weight:500;text-align:right}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+  <div class="tag">アイシン高丘東北 / PLC案件 / 機器確認</div>
+  <h1>富士電機 通信モジュール<br>NP1L-ET1 / NP1L-ET2 識別ガイド</h1>
+  <div class="sub">PLCデータ取込方式の決定に直結する最重要確認事項</div>
+  <div class="meta">社内共有用 ／ 2026-04-30 作成 ／ 株式会社Unsee</div>
+</div>
+
+<section>
+  <h2>なぜ確認が必要か</h2>
+  <div class="callout">
+    富士電機 SPHシリーズ（NP1PS-32R）の通信モジュールが <strong>ET1 か ET2 か</strong> によって、データ取込のアーキテクチャ・コスト・必要機材が大きく変わる。<br>
+    両機種とも FL-net 系で Modbus/TCP 非対応のため、汎用PCから直接読む手段が限られる。実装前に必ず確定させる。
+  </div>
+
+  <table>
+    <thead><tr><th>項目</th><th>NP1L-ET1</th><th>NP1L-ET2</th></tr></thead>
+    <tbody>
+      <tr><td>物理層</td><td>10BASE-T</td><td>10/100BASE-TX</td></tr>
+      <tr><td>世代</td><td>旧世代</td><td>後継・現行</td></tr>
+      <tr><td>主用途</td><td>FL-net</td><td>FL-net（高速）</td></tr>
+      <tr><td>外観差</td><td colspan="2" style="text-align:center;color:var(--fg-mute)">ほぼ同一 — 銘板で確認するのが確実</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2>確認方法 4選（信頼度順）</h2>
+
+  <div class="steps">
+
+    <div class="step">
+      <div><span class="step-num">01</span><span class="step-title">制御盤の銘板を直接確認する</span><span class="step-best">最確実 / 最短</span></div>
+      <div class="step-body">
+        <p>PLCラックを開け、通信モジュール本体正面の銘板を直接読む。富士電機モジュールはパネル上部または中央に型番が印字されている。</p>
+
+        <div class="diagram">
+<svg viewBox="0 0 800 280" xmlns="http://www.w3.org/2000/svg">
+  <!-- ラック背景 -->
+  <rect x="20" y="40" width="760" height="200" fill="#3a414d" stroke="#9aa3ad" stroke-width="2"/>
+  <text x="30" y="32" fill="#9aa3ad" font-size="12" font-weight="700">PLC ラック（制御盤内）</text>
+
+  <!-- 電源モジュール -->
+  <rect x="40" y="60" width="100" height="160" fill="#22262e" stroke="#9aa3ad"/>
+  <text x="90" y="80" fill="#9aa3ad" text-anchor="middle" font-size="10">電源</text>
+  <rect x="55" y="95" width="70" height="20" fill="#1a1d23"/>
+  <text x="90" y="110" fill="#ff8c1a" text-anchor="middle" font-size="11" font-weight="700">NP1S-22</text>
+  <circle cx="65" cy="135" r="4" fill="#3ddc84"/>
+  <circle cx="80" cy="135" r="4" fill="#666"/>
+
+  <!-- CPU -->
+  <rect x="150" y="60" width="100" height="160" fill="#22262e" stroke="#9aa3ad"/>
+  <text x="200" y="80" fill="#9aa3ad" text-anchor="middle" font-size="10">CPU</text>
+  <rect x="165" y="95" width="70" height="20" fill="#1a1d23"/>
+  <text x="200" y="110" fill="#ff8c1a" text-anchor="middle" font-size="11" font-weight="700">NP1PS-32R</text>
+  <circle cx="175" cy="135" r="4" fill="#3ddc84"/>
+  <circle cx="190" cy="135" r="4" fill="#3ddc84"/>
+  <circle cx="205" cy="135" r="4" fill="#666"/>
+
+  <!-- 通信モジュール（強調） -->
+  <rect x="260" y="60" width="120" height="160" fill="#22262e" stroke="#ff8c1a" stroke-width="3"/>
+  <text x="320" y="80" fill="#ff8c1a" text-anchor="middle" font-size="11" font-weight="700">通信モジュール</text>
+  <rect x="280" y="95" width="80" height="22" fill="#1a1d23" stroke="#ff8c1a" stroke-width="1.5"/>
+  <text x="320" y="111" fill="#ff8c1a" text-anchor="middle" font-size="12" font-weight="900">NP1L-ET?</text>
+  <circle cx="290" cy="140" r="4" fill="#3ddc84"/>
+  <circle cx="305" cy="140" r="4" fill="#666"/>
+  <circle cx="320" cy="140" r="4" fill="#666"/>
+  <!-- LANポート -->
+  <rect x="290" y="170" width="40" height="25" fill="#444" stroke="#9aa3ad"/>
+  <text x="310" y="186" fill="#9aa3ad" text-anchor="middle" font-size="9">LAN</text>
+
+  <!-- I/O -->
+  <rect x="390" y="60" width="80" height="160" fill="#22262e" stroke="#9aa3ad"/>
+  <text x="430" y="80" fill="#9aa3ad" text-anchor="middle" font-size="10">I/O</text>
+  <rect x="480" y="60" width="80" height="160" fill="#22262e" stroke="#9aa3ad"/>
+  <text x="520" y="80" fill="#9aa3ad" text-anchor="middle" font-size="10">I/O</text>
+
+  <!-- 矢印（銘板を指す） -->
+  <path d="M 600 125 L 400 105" stroke="#ff8c1a" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <polygon points="0 0, 10 5, 0 10" fill="#ff8c1a"/>
+    </marker>
+  </defs>
+  <text x="610" y="125" fill="#ff8c1a" font-size="14" font-weight="700">ココを見る</text>
+  <text x="610" y="148" fill="#e8eaed" font-size="12" font-weight="500">→ 正面パネルの</text>
+  <text x="610" y="166" fill="#e8eaed" font-size="12" font-weight="500">　 型番印字を確認</text>
+
+  <!-- LED ガイド -->
+  <path d="M 290 230 L 305 240" stroke="#3ddc84" stroke-width="1.5" fill="none"/>
+  <text x="310" y="248" fill="#3ddc84" font-size="10" font-weight="700">緑LED = 通信OK</text>
+</svg>
+          <div class="cap">図1: PLCラック構成イメージ — オレンジ枠の通信モジュール正面を確認</div>
+        </div>
+
+        <p><strong style="color:var(--green)">推奨</strong>: 髙橋様に「<strong>通信モジュール正面の銘板写真を1枚送ってください</strong>」と依頼するだけ。型番は印字されているのでこれで確定する。</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div><span class="step-num">02</span><span class="step-title">既存ドキュメントから遡る</span></div>
+      <div class="step-body">
+        <p>制御盤・PLCの設置時に作成された資料に部品リスト（BOM）が含まれている。以下のいずれかを保全担当者・購買担当者に依頼。</p>
+        <ul>
+          <li>制御盤の電気回路図（部品表 / Bill of Materials）</li>
+          <li>設備購入時の発注書・納品書</li>
+          <li>電気炉メーカー（富士電機系）からの見積書・仕様書</li>
+          <li>定期点検時の点検記録（モジュール一覧記載あり）</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step">
+      <div><span class="step-num">03</span><span class="step-title">設定ツールでオンライン確認</span></div>
+      <div class="step-body">
+        <p>富士電機純正のプログラミングツールで実機にオンライン接続し、システム定義画面から自動取得する。</p>
+        <ul>
+          <li><strong>SX-Programmer Standard</strong>（標準版・無償ダウンロード可）</li>
+          <li><strong>SX-Programmer Expert（D300win）</strong>（プロフェッショナル版）</li>
+          <li>「システム定義（System Definition）」画面に組込みモジュール一覧と型番が表示される</li>
+        </ul>
+        <p>保全担当者・PLC技術者なら所有している可能性が高い。</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div><span class="step-num">04</span><span class="step-title">設備メーカー・代理店に照会</span></div>
+      <div class="step-body">
+        <p>電気炉据付業者または富士電機代理店に問い合わせる。モジュール側面のシリアル番号と一緒に伝えれば即時回答が得られる。</p>
+        <ul>
+          <li>シリアル番号 = モジュール側面のラベルに記載</li>
+          <li>富士電機お客様相談窓口 / 地域代理店</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>参考リンク</h2>
+  <div class="linkcard">
+    <div class="lt">富士電機 SPH CPU 製品ページ</div>
+    <a href="https://www.fujielectric.co.jp/products/drive_ctrl_equipment/plc/product_series/sph_product_information_cpu.html" target="_blank" rel="noopener">https://www.fujielectric.co.jp/products/drive_ctrl_equipment/plc/product_series/sph_product_information_cpu.html</a>
+  </div>
+  <div class="linkcard">
+    <div class="lt">NP1S-42 PDF データシート（参考）</div>
+    <a href="https://files.kempstoncontrols.com/files/d70c848071c5e9bd04470a6997ac71e5/NP1S-42.pdf" target="_blank" rel="noopener">https://files.kempstoncontrols.com/files/d70c848071c5e9bd04470a6997ac71e5/NP1S-42.pdf</a>
+  </div>
+</section>
+
+<div class="action">
+  <h2>本日のアクション</h2>
+  <p>方法01が圧倒的に最短。髙橋様へメール／チャットで以下を依頼する。</p>
+  <div class="quote">
+    髙橋様<br><br>
+    PLC通信モジュールの型番を確認したく、制御盤を開けたタイミングで結構ですので、通信モジュール正面パネル（銘板）の写真を1枚お送りいただけないでしょうか。「NP1L-ET1」または「NP1L-ET2」のいずれかが印字されているはずで、これによりデータ取込方式の設計が確定します。
+  </div>
+</div>
+
+<footer>株式会社Unsee ／ アイシン高丘東北 PLC案件 機器確認資料 ／ 内部共有用</footer>
+</div>
+</body>
+</html>
